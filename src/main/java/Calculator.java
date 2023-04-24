@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 public class Calculator {
     Scanner scanner = new Scanner(System.in);
     Formatter formatter = new Formatter();
@@ -8,7 +9,7 @@ public class Calculator {
     double sumOfPrice;
     int countFriends;
 
-    public int getCountOfFriends() {
+    public void calcCountOfFriends() {
         while (true) {
             if (scanner.hasNextInt()) {
                 countFriends = scanner.nextInt();
@@ -17,7 +18,7 @@ public class Calculator {
                     System.exit(0);
 
                 } else if (countFriends <= 0 || countFriends > 1000000) {
-                    System.out.println("Некорректные данные для расчетов! Попробуй ввести снова!");
+                    System.out.println("Некорректные данные для расчетов или вас ооочень много! Попробуй ввести снова!");
                     scanner.nextLine();
                 } else {
                     scanner.nextLine();
@@ -28,7 +29,6 @@ public class Calculator {
                 scanner.nextLine();
             }
         }
-        return countFriends;
     }
 
     public void insertPriceProduct() {
@@ -63,18 +63,14 @@ public class Calculator {
                 break;
             } else if (insertProduct.isEmpty()) {
                 System.out.println("Пустое наименование товара!");
-            } else
-            {
+            } else {
                 userProduct.add(insertProduct);
                 insertPriceProduct();
                 System.out.println("\nХотите добавить еще? Чтобы завершить ввод - напиши 'завершить'!");
                 insertProduct = scanner.nextLine();
-                if (insertProduct.equalsIgnoreCase("завершить"))
-                {
+                if (insertProduct.equalsIgnoreCase("завершить")) {
                     break;
-                }
-                else
-                {
+                } else {
                     continue;
                 }
             }
